@@ -9,11 +9,13 @@ import { AuthService } from '../../service/auth.service';
 export class LoginComponent {
   username = '';
   password = '';
-
+  loginError = false;
   constructor(private authService: AuthService) {}
   onSubmit() {
     if (this.authService.login(this.username, this.password)) {
       this.authService.isLoggedIn = true;
-    } 
+    } else {
+      this.loginError = true;
+    }
   }
 }

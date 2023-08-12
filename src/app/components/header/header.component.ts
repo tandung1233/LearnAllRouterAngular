@@ -9,14 +9,12 @@ import { AuthService } from 'src/app/service/auth.service';
 export class HeaderComponent {
   // Vì link các đường link trên menu là đứng nên khai báo 1 mảng cho khỏe
   listNav = [
-    { name: 'Home', link: '' },
-    { name: 'About', link: 'about' },
-    { name: 'News', link: 'news' },
-    { name: 'Seller', link: 'seller' },
-    { name: 'Buyer', link: 'buyer' },
+    { name: 'Home', link: '', icon: 'fa-house-user' },
+    { name: 'About', link: 'about', icon: 'fa-circle-info' },
+    { name: 'News', link: 'news', icon: 'fa-newspaper' },
+    { name: 'Seller', link: 'seller', icon: 'fa-cart-shopping' },
+    { name: 'Buyer', link: 'buyer', icon: 'fa-bag-shopping' },
   ];
-  constructor(public authService: AuthService) { }
-  ngOnInit(): void {
-    
-  }
+  constructor(public authService: AuthService) {}
+  ngOnInit(): void {}
 }
