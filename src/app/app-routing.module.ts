@@ -8,6 +8,7 @@ import { BuyerComponent } from './pages/buyer/buyer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 // Mảng chứa các routes nghĩa là 1 phần tử là 1 Route
 const routes: Routes = [
   // pathMatch: 'full' đã được thêm vào route mặc định để đảm bảo chỉ khớp khi URL hoàn toàn trùng khớp.
@@ -27,7 +28,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { title: 'Đăng nhập', path: 'login', component: LoginComponent },
+  { title: 'Không có quyền', path: '403', component: ForbiddenComponent },
   {
+    title: 'Không tìm thấy trang',
     path: '**',
     component: NotFoundComponent,
   },

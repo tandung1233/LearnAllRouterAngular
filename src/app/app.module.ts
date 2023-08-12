@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NotFoundComponent,
     LoginComponent,
     HeaderComponent,
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
-import { ToastrService } from 'ngx-toastr';
+import { MessageService } from 'src/app/service/message.service';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,14 @@ export class LoginComponent {
   username = '';
   password = '';
   loginError = false;
-  constructor(private authService: AuthService, public toastr: ToastrService) {}
+  constructor(
+    private authService: AuthService,
+    public message: MessageService
+  ) {}
   onSubmit() {
     if (this.authService.login(this.username, this.password)) {
       this.authService.isLoggedIn = true;
-      this.toastr.success('Đăng nhập thành công', 'Success', {
-        timeOut: 3000,
-        progressBar: true,
-        progressAnimation: 'decreasing',
-      });
+      this.message.showSuccess('Chào mừng bạn đến với trang web chúng tôi');
     } else {
       this.loginError = true;
     }
