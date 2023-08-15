@@ -15,6 +15,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,8 @@ import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatBadgeModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
