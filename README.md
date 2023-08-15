@@ -16,3 +16,10 @@
 14. Custom Router Outlet(Học cách tạo các custom router outlet để tạo ra các hiệu ứng động khi chuyển route.)
 15. Route Data and Resolver Data(Nắm vững cách sử dụng dữ liệu liên quan đến route và resolver để truyền thông tin giữa các route.)
 16. ![image](https://github.com/tandung1233/LearnAllRouterAngular/assets/90715423/afd8f1aa-5947-43bf-90a4-644b3256f1bf)
+
+
+- Những công nghệ mình đã sử dụng trong dự án
++ types/lodash": "^4.14.197: Thư viện lodash giúp mình có thể sử lý mảng, object, chuỗi,.. linh hoạt đỡ phải tạo hàm hơn
++ "ngx-toastr": "^17.0.2": Giúp hiện thị các thông báo  thât bại hoặc thành công này nọ
++ tailwind css: Giúp code css dễ dàng hơn
++ "@fortawesome/fontawesome-free": "^6.4.2": Giúp mình có các icon
