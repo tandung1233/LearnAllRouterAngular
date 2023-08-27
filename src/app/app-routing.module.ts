@@ -9,6 +9,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
+import { LearnFormComponent } from './pages/learn-form/learn-form.component';
 // Mảng chứa các routes nghĩa là 1 phần tử là 1 Route
 const routes: Routes = [
   // pathMatch: 'full' đã được thêm vào route mặc định để đảm bảo chỉ khớp khi URL hoàn toàn trùng khớp.
@@ -19,6 +20,7 @@ const routes: Routes = [
     title: 'Bên bán',
     path: 'seller',
     component: SellerComponent,
+    // canActive là 1 mảng có thế gán nhiều guard khác nữa nhưng thông thường thì có 1 guard vì trong guard này có thể gọi gaurd khác bên trong
     canActivate: [AuthGuard],
   },
   {
@@ -27,6 +29,7 @@ const routes: Routes = [
     component: BuyerComponent,
     canActivate: [AuthGuard],
   },
+  { title: 'Học form', path: 'learn-form', component: LearnFormComponent },
   { title: 'Đăng nhập', path: 'login', component: LoginComponent },
   { title: 'Không có quyền', path: '403', component: ForbiddenComponent },
   {

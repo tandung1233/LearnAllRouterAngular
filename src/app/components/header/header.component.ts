@@ -14,6 +14,7 @@ export class HeaderComponent {
     { name: 'News', link: 'news', icon: 'fa-newspaper' },
     { name: 'Seller', link: 'seller', icon: 'fa-cart-shopping' },
     { name: 'Buyer', link: 'buyer', icon: 'fa-bag-shopping' },
+    { name: 'Learn Form', link: 'learn-form', icon: 'fa-bag-shopping' },
   ];
   constructor(public authService: AuthService) {}
   ngOnInit(): void {}

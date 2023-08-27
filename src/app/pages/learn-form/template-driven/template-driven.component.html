@@ -1,0 +1,235 @@
+<h2 class="text-center">1. Ví dụ đơn giản nhất(lấy giá trị của form 2 cách sử dụng [(ngModel]="biến ts dùng để nếu edit
+  có sẵn dữ liệu") hoặc cách dưới đây để lấy dữ liệu khi nhập)</h2>
+<ng-container *ngTemplateOutlet="content1"></ng-container>
+<h2 class="text-center">2. Gom nhóm các phần tử trong form lại sử dụng ngModelGroup</h2>
+<ng-container *ngTemplateOutlet="content2"></ng-container>
+<h2 class="text-center">3. Các Validation hay dùng</h2>
+<ng-container *ngTemplateOutlet="content3"></ng-container>
+
+<ng-template #content1>
+  <div class="flex items-center justify-center bg-gray-100">
+    {{form.value | json}}
+    <!-- Đây là code đơn giản nhất của form sử dụng template variable để lấy giá trị của ngForm sẽ lấy instance và truyền qua bên kia.  -->
+    <form
+      #form="ngForm"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-2 mb-4"
+      (ngSubmit)="onSubmit(form)"
+    >
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="firstName"
+        >
+          Họ:
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="text"
+          id="firstName"
+          name="firstName"
+          ngModel
+          required
+        >
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="lastName"
+        >
+          Tên:
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="text"
+          id="lastName"
+          name="lastName"
+          ngModel
+          required
+        >
+      </div>
+      <div class="mb-6">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="email"
+        >
+          Email:
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          type="email"
+          id="email"
+          name="email"
+          ngModel
+          required
+        >
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Gửi
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #content2>
+  <div class="flex items-center justify-center bg-gray-100">
+    <form
+      #userForm="ngForm"
+      (ngSubmit)="onSubmit(userForm.value)"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full md:w-2/3 lg:w-1/2 xl:w-1/3"
+    >
+      <fieldset
+        ngModelGroup="personalInfo"
+        class="mb-4 border p-4 rounded bg-gray-50 shadow-inner"
+      >
+        <legend class="text-lg font-semibold">Thông tin cá nhân</legend>
+        <div class="mb-2">
+          <label
+            for="firstName"
+            class="block text-gray-700 text-sm font-bold mb-1"
+          >Họ:</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            ngModel
+            required
+            class="w-full px-3 py-2 rounded bg-gray-100 border focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+        </div>
+        <div class="mb-2">
+          <label
+            for="lastName"
+            class="block text-gray-700 text-sm font-bold mb-1"
+          >Tên:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            ngModel
+            required
+            class="w-full px-3 py-2 rounded bg-gray-100 border focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+        </div>
+      </fieldset>
+
+      <fieldset
+        ngModelGroup="contactInfo"
+        class="mb-4 border p-4 rounded bg-gray-50 shadow-inner"
+      >
+        <legend class="text-lg font-semibold">Thông tin liên hệ</legend>
+        <div class="mb-2">
+          <label
+            for="email"
+            class="block text-gray-700 text-sm font-bold mb-1"
+          >Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            ngModel
+            required
+            class="w-full px-3 py-2 rounded bg-gray-100 border focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+        </div>
+        <div class="mb-2">
+          <label
+            for="phone"
+            class="block text-gray-700 text-sm font-bold mb-1"
+          >Số điện thoại:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            ngModel
+            class="w-full px-3 py-2 rounded bg-gray-100 border focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+        </div>
+      </fieldset>
+
+      <div class="flex items-center justify-center">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Gửi
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<ng-template #content3>
+  <form
+    #myForm="ngForm"
+    class="w-full max-w-sm mx-auto mt-8 p-4 bg-gray-100 rounded-lg"
+  >
+    <div class="mb-4">
+      <label
+        for="email"
+        class="block text-gray-700 font-semibold mb-1"
+      >Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        ngModel
+        required
+        class="w-full px-4 py-2 rounded border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
+      >
+    </div>
+
+    <button
+      type="submit"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300"
+    >
+      Submit
+    </button>
+  </form>
+
+  <p>Touched: {{ myForm.controls['email'].touched }}</p>
+  <p>Untouched: {{ myForm.controls['email'].untouched }}</p>
+  <p>Valid: {{ myForm.controls['email'].valid }}</p>
+  <p>Invalid: {{ myForm.controls['email'].invalid }}</p>
+  <p>Pristine: {{ myForm.controls['email'].pristine }}</p>
+  <p>Dirty: {{ myForm.controls['email'].dirty }}</p>
+  <p>Dựa vào những điều này và ngIf để hiển thị ra các thông báo lỗi như ý muốn</p>
+  <p>
+    Touched và Untouched:<br>
+    Touched: Một trường được coi là "touched" khi người dùng tương tác với nó (chẳng hạn như click vào và rời khỏi).
+    Điều này thường được sử dụng để hiển thị các thông báo lỗi sau khi người dùng đã tương tác với trường.
+    <br>
+    Untouched: Một trường được coi là "untouched" nếu người dùng chưa tương tác với nó.
+    Ví dụ: Giả sử bạn có một trường input để nhập email. Sau khi người dùng click vào trường và rời khỏi, trường sẽ được
+    đánh dấu là "touched".
+    Valid và Invalid:<br>
+    Valid: Một trường được coi là "valid" nếu dữ liệu trong trường đáp ứng các yêu cầu và ràng buộc của nó.
+    Invalid: Một trường được coi là "invalid" nếu dữ liệu trong trường không đáp ứng các yêu cầu và ràng buộc của nó.
+    Ví dụ: Giả sử bạn có một trường input để nhập mật khẩu, và mật khẩu phải có ít nhất 8 ký tự. Nếu người dùng nhập mật
+    khẩu có ít hơn 8 ký tự, trường sẽ được đánh dấu là "invalid".
+    Pristine và Dirty:<br>
+    Pristine: Một trường được coi là "pristine" nếu người dùng chưa thay đổi giá trị của trường kể từ khi biểu mẫu được
+    tạo ra.<br>
+    Dirty: Một trường được coi là "dirty" nếu người dùng đã thay đổi giá trị của trường.
+    Ví dụ: Ban đầu, một trường input có giá trị là rỗng. Sau khi người dùng nhập một giá trị vào trường, trường sẽ được
+    đánh dấu là "dirty".
+  </p>
+  <p class="text-red-500">Có thể sử dụng myForm để lấy các biến hoặc như thế này
+    <!-- <label
+      for="email"
+      class="block text-gray-700 font-semibold mb-1"
+    >Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      ngModel
+      #email="ngModel"
+      required
+      class="w-full px-4 py-2 rounded border border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none"
+    >
+    {{email?.errors?.['required']}} -->
+  </p>
+</ng-template>

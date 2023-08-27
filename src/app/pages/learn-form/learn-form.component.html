@@ -1,0 +1,23 @@
+<h1>Trong angular có 2 loại form. Bạn hãy vui lòng chọn loại form mà bạn muốn</h1>
+<mat-form-field class="w-60">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="template-driven">Template driven form</mat-option>
+    <mat-option value="reactive">Reactive form</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{selected}}</p>
+<ng-container [ngSwitch]="selected">
+  <div *ngSwitchCase="'template-driven'">
+    <h2 class="text-yellow-400 text-center">Angular Templat-Driven Forms</h2>
+    <app-template-driven></app-template-driven>
+  </div>
+  <div *ngSwitchCase="'reactive'">
+    <app-reactive></app-reactive>
+  </div>
+  <div *ngSwitchDefault>
+    <h2 class="text-yellow-400 text-center">Angular Reactive Forms</h2>
+    <app-template-driven></app-template-driven>
+  </div>
+</ng-container>

@@ -24,3 +24,6 @@
 + tailwind css: Giúp code css dễ dàng hơn
 + "@fortawesome/fontawesome-free": "^6.4.2": Giúp mình có các icon
 + "@angular/cdk": "^16.2.0" và "@angular/material": "^16.2.0": được tự động thêm khi tải angular marerial
+
+
+Các cái cần bổ sung cho project. Cứ làm thoải mái sau đi bổ sung module cho form

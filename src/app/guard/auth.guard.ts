@@ -27,6 +27,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isLoggedIn) {
       return true;
     } else {
+      // Thay vì trả về boolean false và sử dụng route để chuyển trang nếu như người dùng chưa login thì ta sử dụng UrlTree cho khỏe
       return this.router.createUrlTree(['/403']);
     }
   }

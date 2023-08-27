@@ -1,0 +1,7 @@
+input {
+  border: solid 1px gray;
+}
+/* Mặc định ban đầu khi chưa đụng vào thì sẽ có class ng-unTouched khi chạm vào input sẽ có class .ng-touched  */
+.ng-touched {
+  border: solid 1px red;
+}

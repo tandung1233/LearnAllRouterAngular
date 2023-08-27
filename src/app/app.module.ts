@@ -17,6 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { LearnFormComponent } from './pages/learn-form/learn-form.component';
+import { TemplateDrivenComponent } from './pages/learn-form/template-driven/template-driven.component';
+import { ReactiveComponent } from './pages/learn-form/reactive/reactive.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
+    LearnFormComponent,
+    TemplateDrivenComponent,
+    ReactiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     ToastrModule.forRoot(),
     MatBadgeModule,
     MatIconModule,
+    MatSelectModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
