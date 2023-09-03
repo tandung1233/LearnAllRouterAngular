@@ -6,18 +6,13 @@
     <mat-option value="reactive">Reactive form</mat-option>
   </mat-select>
 </mat-form-field>
-
-<p>You selected: {{selected}}</p>
 <ng-container [ngSwitch]="selected">
   <div *ngSwitchCase="'template-driven'">
     <h2 class="text-yellow-400 text-center">Angular Templat-Driven Forms</h2>
     <app-template-driven></app-template-driven>
   </div>
   <div *ngSwitchCase="'reactive'">
-    <app-reactive></app-reactive>
-  </div>
-  <div *ngSwitchDefault>
     <h2 class="text-yellow-400 text-center">Angular Reactive Forms</h2>
-    <app-template-driven></app-template-driven>
+    <app-reactive></app-reactive>
   </div>
 </ng-container>

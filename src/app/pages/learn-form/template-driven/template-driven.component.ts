@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./template-driven.component.css'],
 })
 export class TemplateDrivenComponent {
+  check = false
   onSubmit(formData: any) {
     console.log('Dữ liệu người dùng:', formData);
   }
@@ -17,5 +18,5 @@ export class TemplateDrivenComponent {
   // ];
   contents = ['content', 'content', 'content'];
   // templates: { [key: string]: any } = {};
-  templates:any = ['content1', 'content2', 'content3'];
+  templates: any = ['content1', 'content2', 'content3'];
 }

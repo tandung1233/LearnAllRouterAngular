@@ -9,5 +9,5 @@ interface Food {
   styleUrls: ['./learn-form.component.css'],
 })
 export class LearnFormComponent {
-  selected = null;
+  selected = 'template-driven';
 }

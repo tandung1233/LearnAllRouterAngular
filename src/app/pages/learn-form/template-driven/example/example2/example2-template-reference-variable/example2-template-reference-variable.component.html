@@ -1,0 +1,134 @@
+<form
+  #contactForm="ngForm"
+  (ngSubmit)="onSubmit(contactForm)"
+>
+  <p>
+    <label for="firstname">First Name </label>
+    <input
+      type="text"
+      name="firstname"
+      ngModel
+    >
+  </p>
+  <p>
+    <label for="lastname">Last Name </label>
+    <input
+      type="text"
+      name="lastname"
+      ngModel
+    >
+  </p>
+  <p>
+    <label for="email">Email </label>
+    <input
+      type="text"
+      name="email"
+      ngModel
+    >
+  </p>
+  <p>
+    <label for="gender">Geneder </label>
+    <input
+      type="radio"
+      value="male"
+      name="gender"
+      ngModel
+    > Male
+    <input
+      type="radio"
+      value="female"
+      name="gender"
+      ngModel
+    > Female
+  </p>
+  <p>
+    <label for="isMarried">Married </label>
+    <input
+      type="checkbox"
+      name="isMarried"
+      ngModel
+    >
+  </p>
+  <p>
+    <label for="country">country </label>
+    <select
+      name="country"
+      ngModel
+    >
+      <option
+        [ngValue]="c.id"
+        *ngFor="let c of countryList"
+      >
+        {{c.name}}
+      </option>
+    </select>
+  </p>
+  <div ngModelGroup="address">
+    <p>
+      <label for="city">City</label>
+      <input
+        type="text"
+        name="city"
+        ngModel
+      >
+    </p>
+    <p>
+      <label for="street">Street</label>
+      <input
+        type="text"
+        name="street"
+        ngModel
+      >
+    </p>
+    <p>
+      <label for="pincode">Pin Code</label>
+      <input
+        type="text"
+        name="pincode"
+        ngModel
+      >
+    </p>
+  </div>
+  <p>
+    <button
+      class="button"
+      type="submit"
+    >Submit</button>
+  </p>
+  <p>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="changeCountry()"
+    >Change Country</button>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="setDefaults()"
+    >Set Defaults</button>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="patchValue()"
+    >Patch Value</button>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="changeAddress()"
+    >Change Address</button>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="reset()"
+    >Reset</button>
+    <button
+      class="button"
+      type="button"
+      (click)="resetForm()"
+    >Reset Form</button>
+  </p>
+  <b>valid</b> {{contactForm.valid}}
+  <b>touched</b> {{contactForm.touched}}
+  <b>pristine</b> {{contactForm.pristine}}
+  <b>dirty</b> {{contactForm.dirty}}
+</form>

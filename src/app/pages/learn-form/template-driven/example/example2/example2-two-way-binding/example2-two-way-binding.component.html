@@ -1,0 +1,127 @@
+<form
+  #contactForm="ngForm"
+  (ngSubmit)="onSubmit(contactForm)"
+>
+  <p>
+    <label for="firstname">First Name </label>
+    <input
+      type="text"
+      name="firstname"
+      [(ngModel)]="contact.firstname"
+    >
+  </p>
+  <p>
+    <label for="lastname">Last Name </label>
+    <input
+      type="text"
+      name="lastname"
+      [(ngModel)]="contact.lastname"
+    >
+  </p>
+  <p>
+    <label for="email">Email </label>
+    <input
+      type="text"
+      name="email"
+      [(ngModel)]="contact.email"
+    >
+  </p>
+
+  <p>
+    <label for="gender">Geneder </label>
+    <input
+      type="radio"
+      value="male"
+      name="gender"
+      [(ngModel)]="contact.gender"
+    > Male
+    <input
+      type="radio"
+      value="female"
+      name="gender"
+      [(ngModel)]="contact.gender"
+    > Female
+
+  </p>
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input
+      type="checkbox"
+      name="isMarried"
+      [(ngModel)]="contact.isMarried"
+    >
+  </p>
+
+  <p>
+    <label for="country">country </label>
+    <select
+      name="country"
+      [(ngModel)]="contact.country"
+    >
+      <option
+        [ngValue]="c.id"
+        *ngFor="let c of countryList"
+      >
+        {{c.name}}
+      </option>
+    </select>
+  </p>
+
+  <div ngModelGroup="address">
+    <p>
+      <label for="city">City</label>
+      <input
+        type="text"
+        name="city"
+        [(ngModel)]="contact.address.city"
+      >
+    </p>
+    <p>
+      <label for="street">Street</label>
+      <input
+        type="text"
+        name="street"
+        [(ngModel)]="contact.address.street"
+      >
+    </p>
+
+    <p>
+      <label for="pincode">Pin Code</label>
+      <input
+        type="text"
+        name="pincode"
+        [(ngModel)]="contact.address.pincode"
+      >
+    </p>
+
+  </div>
+  <p>
+    <button
+      class="button"
+      type="submit"
+    >Submit</button>
+  </p>
+  <p>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="changeCountry()"
+    >Change Country</button>
+    <button
+      class="button mr-3"
+      type="button"
+      (click)="setDefaults()"
+    >Set Defaults</button>
+    <button
+      class="button"
+      type="button"
+      (click)="reset(contactForm)"
+    >Reset</button>
+  </p>
+  <p>Các trạng thái</p>
+  <b>valid</b> {{contactForm.valid}}
+  <b>touched</b> {{contactForm.touched}}
+  <b>pristine</b> {{contactForm.pristine}}
+  <b>dirty</b> {{contactForm.dirty}}
+</form>

@@ -22,6 +22,13 @@ import { TemplateDrivenComponent } from './pages/learn-form/template-driven/temp
 import { ReactiveComponent } from './pages/learn-form/reactive/reactive.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { Example1Component } from './pages/learn-form/template-driven/example/example1/example1.component';
+import { Example2Component } from './pages/learn-form/template-driven/example/example2/example2.component';
+import { Example3Component } from './pages/learn-form/template-driven/example/example3/example3.component';
+import { Example4Component } from './pages/learn-form/template-driven/example/example4/example4.component';
+import { Example5Component } from './pages/learn-form/template-driven/example/example5/example5.component';
+import { Example2TwoWayBindingComponent } from './pages/learn-form/template-driven/example/example2/example2-two-way-binding/example2-two-way-binding.component';
+import { Example2TemplateReferenceVariableComponent } from './pages/learn-form/template-driven/example/example2/example2-template-reference-variable/example2-template-reference-variable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +44,13 @@ import { MatButtonModule } from '@angular/material/button';
     LearnFormComponent,
     TemplateDrivenComponent,
     ReactiveComponent,
+    Example1Component,
+    Example2Component,
+    Example3Component,
+    Example4Component,
+    Example5Component,
+    Example2TwoWayBindingComponent,
+    Example2TemplateReferenceVariableComponent,
   ],
   imports: [
     BrowserModule,

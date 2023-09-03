@@ -1,11 +1,13 @@
-<h2 class="text-center">1. Ví dụ đơn giản nhất(lấy giá trị của form 2 cách sử dụng [(ngModel]="biến ts dùng để nếu edit
+<h2 class="text-center text-blue-600">1. Ví dụ đơn giản nhất(lấy giá trị của form 2 cách sử dụng [(ngModel]="biến ts
+  dùng để nếu edit
   có sẵn dữ liệu") hoặc cách dưới đây để lấy dữ liệu khi nhập)</h2>
 <ng-container *ngTemplateOutlet="content1"></ng-container>
-<h2 class="text-center">2. Gom nhóm các phần tử trong form lại sử dụng ngModelGroup</h2>
+<h2 class="text-center text-blue-600">2. Gom nhóm các phần tử trong form lại sử dụng ngModelGroup</h2>
 <ng-container *ngTemplateOutlet="content2"></ng-container>
-<h2 class="text-center">3. Các Validation hay dùng</h2>
+<h2 class="text-center text-blue-600">3. Các Validation hay dùng</h2>
 <ng-container *ngTemplateOutlet="content3"></ng-container>
-
+<h2 class="text-center text-blue-600">4. Học qua các ví dụ</h2>
+<ng-container *ngTemplateOutlet="content4"></ng-container>
 <ng-template #content1>
   <div class="flex items-center justify-center bg-gray-100">
     {{form.value | json}}
@@ -25,7 +27,6 @@
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
-          id="firstName"
           name="firstName"
           ngModel
           required
@@ -41,7 +42,6 @@
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
-          id="lastName"
           name="lastName"
           ngModel
           required
@@ -57,7 +57,6 @@
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="email"
-          id="email"
           name="email"
           ngModel
           required
@@ -93,7 +92,6 @@
           >Họ:</label>
           <input
             type="text"
-            id="firstName"
             name="firstName"
             ngModel
             required
@@ -107,7 +105,6 @@
           >Tên:</label>
           <input
             type="text"
-            id="lastName"
             name="lastName"
             ngModel
             required
@@ -128,7 +125,6 @@
           >Email:</label>
           <input
             type="email"
-            id="email"
             name="email"
             ngModel
             required
@@ -173,7 +169,6 @@
       >Email:</label>
       <input
         type="email"
-        id="email"
         name="email"
         ngModel
         required
@@ -188,13 +183,21 @@
       Submit
     </button>
   </form>
+  <button
+    (click)="check = true"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+  >
+    Bấm để xem các trang thái
+  </button>
+  <ng-container *ngIf="check">
+    <p>Touched: {{ myForm.controls['email'].touched }}</p>
+    <p>Untouched: {{ myForm.controls['email'].untouched }}</p>
+    <p>Valid: {{ myForm.controls['email'].valid }}</p>
+    <p>Invalid: {{ myForm.controls['email'].invalid }}</p>
+    <p>Pristine: {{ myForm.controls['email'].pristine }}</p>
+    <p>Dirty: {{ myForm.controls['email'].dirty }}</p>
+  </ng-container>
 
-  <p>Touched: {{ myForm.controls['email'].touched }}</p>
-  <p>Untouched: {{ myForm.controls['email'].untouched }}</p>
-  <p>Valid: {{ myForm.controls['email'].valid }}</p>
-  <p>Invalid: {{ myForm.controls['email'].invalid }}</p>
-  <p>Pristine: {{ myForm.controls['email'].pristine }}</p>
-  <p>Dirty: {{ myForm.controls['email'].dirty }}</p>
   <p>Dựa vào những điều này và ngIf để hiển thị ra các thông báo lỗi như ý muốn</p>
   <p>
     Touched và Untouched:<br>
@@ -232,4 +235,16 @@
     >
     {{email?.errors?.['required']}} -->
   </p>
+</ng-template>
+<ng-template #content4>
+  <h3 class="text-center text-green-600">4.1 Ví dụ 1(Ví dụ đơn giản nhất lấy dữ liệu bên file html)</h3>
+  <app-example1></app-example1>
+  <h3 class="text-center text-green-600">4.2 Ví dụ 2(Đặt giá trị ban đầu cho các input two way and template variable)</h3>
+  <app-example2></app-example2>
+  <h3 class="text-center text-green-600">4.3 Ví dụ 3(Validation)</h3>
+  <app-example3></app-example3>
+  <h3 class="text-center text-green-600">4.4 Ví dụ 4</h3>
+  <app-example4></app-example4>
+  <h3 class="text-center text-green-600">4.5 Ví dụ 5</h3>
+  <app-example4></app-example4>
 </ng-template>

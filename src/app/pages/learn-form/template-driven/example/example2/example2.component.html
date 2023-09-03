@@ -1,0 +1,19 @@
+<h1>Trong angular có hai cách bạn có thể đặt giá trị của các thành phần biểu mẫu</h1>
+<mat-form-field class="w-64">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="true">Two-way data binding</mat-option>
+    <mat-option value="false">Template reference variable</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<ng-container [ngSwitch]="selected">
+  <div *ngSwitchCase="'true'">
+    <h2 class="text-yellow-700 text-center">Two-way data binding</h2>
+    <app-example2-two-way-binding></app-example2-two-way-binding>
+  </div>
+  <div *ngSwitchCase="'false'">
+    <h2 class="text-yellow-700 text-center">Template reference variable</h2>
+    <app-example2-template-reference-variable></app-example2-template-reference-variable>
+  </div>
+</ng-container>
